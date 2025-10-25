@@ -48,7 +48,7 @@ function downloadVCard() {
 VERSION:3.0
 FN:하재영
 N:하;재영;;;
-TITLE:Frontend Developer
+<!-- TITLE: 회사명 -->
 TEL;TYPE=CELL:010-4316-2708
 EMAIL:mail@hajaeyoung.kr
 URL:https://businesscard.hajaeyoung.kr
