@@ -62,7 +62,7 @@ END:VCARD`;
     // 다운로드 링크 생성 및 클릭
     const link = document.createElement('a');
     link.href = url;
-    link.download = '김민준_명함.vcf';
+    link.download = '하재영_명함.vcf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
