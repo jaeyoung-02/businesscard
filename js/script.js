@@ -58,18 +58,18 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // (선택 사항) 스킬별로 다른 내용을 보여주고 싶다면 여기서 처리
         if (skillName === "Driver's Licence (Class 1 Ordinary)") {
-            odalContent.innerHTML = "1종 보통 운전면허를 보유하고ㅇㅇㅇ 있습니다.<br><br>' + 
+            modalContent.innerHTML = "1종 보통 운전면허를 보유하고ㅇㅇㅇ 있습니다.<br><br>' + 
                                  '<strong><a href="https://www.koroad.or.kr/main/content/view/MN03040100.do">-한국도로교통공단-</a></strong>';
         } else if (skillName === "Github") {
-            odalContent.innerHTML = "Git과 Github를 사용하여 버전 관리를 할 수 있습니다.";
+            modalContent.innerHTML = "Git과 Github를 사용하여 버전 관리를 할 수 있습니다.";
         } else if (skillName === "Excel Beginner") {
-            odalContent.innerHTML = "Excel을 다룰 수 있습니다.";
+            modalContent.innerHTML = "Excel을 다룰 수 있습니다.";
         } else if (skillName === "Barista Level 2") {
-            odalContent.innerHTML = "바리스타 2급 자격증을 보유하고 있습니다.";
+            modalContent.innerHTML = "바리스타 2급 자격증을 보유하고 있습니다.";
         } else if (skillName === "HTML Beginner") {
-            odalContent.innerHTML = "HTML을 다룰 수 있습니다.";
+            modalContent.innerHTML = "HTML을 다룰 수 있습니다.";
         } else {
-            odalContent.innerHTML = `"${skillName}" 스킬에 대한 상세 설명입니다.`;
+            modalContent.innerHTML = `"${skillName}" 스킬에 대한 상세 설명입니다.`;
         }
         
         // 모달과 오버레이 보이기
