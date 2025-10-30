@@ -58,8 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // (선택 사항) 스킬별로 다른 내용을 보여주고 싶다면 여기서 처리
         if (skillName === "Driver's Licence (Class 1 Ordinary)") {
-            modalContent.innerHTML = '1종 보통 운전면허를 보유하고 있습니다.<br><br>' + 
-                                     '<strong><a href="https://www.koroad.or.kr/main/content/view/MN03040100.do" target="_blank">-한국도로교통공단-</a></strong>';
+            modalContent.innerHTML = '<img src="/사)한국커피협회.png" alt="바리스타 2급" class="modal-skill-image">' +
+                                     '바리스타 2급 자격증을 보유하고 있습니다.<br><br>' + 
+                                     '<strong><a href="https://www.kca-coffee.org/" target="_blank">-(사)한국커피협회-</a></strong>';
         } else if (skillName === "Github") {
             modalContent.innerHTML = "Git과 Github를 사용하여 버전 관리를 할 수 있습니다.";
         } else if (skillName === "Excel Beginner") {
