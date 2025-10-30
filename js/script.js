@@ -192,8 +192,6 @@ document.addEventListener('copy', function(e) {
     console.log('내용이 복사되었습니다.');
 });
 
-... (기존 JavaScript 내용) ...
-
 // ▼▼▼ 모달 팝업 로직 (여기에 추가) ▼▼▼
 
 // 1. 필요한 HTML 요소 선택
@@ -212,8 +210,14 @@ function openModal(skillName) {
     // (선택 사항) 스킬별로 다른 내용을 보여주고 싶다면 여기서 처리
     if (skillName === "Driver's Licence (Class 1 Ordinary)") {
         modalContent.textContent = "1종 보통 운전면허를 보유하고 있습니다.";
-    } else if (skillName === "Github Beginner") {
+    } else if (skillName === "Github") { // 'Github Beginner'에서 'Github'로 변경되었습니다.
         modalContent.textContent = "Git과 Github를 사용하여 버전 관리를 할 수 있습니다.";
+    } else if (skillName === "Excel Beginner") {
+        modalContent.textContent = "Excel을 다룰 수 있습니다.";
+    } else if (skillName === "Barista Level 2") {
+        modalContent.textContent = "바리스타 2급 자격증을 보유하고 있습니다.";
+    } else if (skillName === "HTML Beginner") {
+        modalContent.textContent = "HTML을 다룰 수 있습니다.";
     } else {
         modalContent.textContent = `"${skillName}" 스킬에 대한 상세 설명입니다.`;
     }
