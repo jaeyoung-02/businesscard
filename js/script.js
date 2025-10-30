@@ -1,5 +1,6 @@
 // 페이지 로드 시 애니메이션
 document.addEventListener('DOMContentLoaded', function() {
+    
     // 부드러운 스크롤 효과
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -15,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 스킬 태그에 호버 효과 강화
-    const skillTags = document.querySelectorAll('.skill-tag');
-    skillTags.forEach(tag => {
+    const originalSkillTags = document.querySelectorAll('.skill-tag');
+    originalSkillTags.forEach(tag => {
         tag.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-3px) scale(1.05)';
         });
@@ -39,7 +40,66 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
+
+    // ▼▼▼ 모달 팝업 로직 (DOMContentLoaded 안으로 이동) ▼▼▼
+
+    // 1. 필요한 HTML 요소 선택
+    const skillTags = document.querySelectorAll('.skill-tag');
+    const modal = document.getElementById('skillModal');
+    const overlay = document.getElementById('modalOverlay');
+    const closeButton = document.querySelector('.close-button');
+    const modalTitle = document.getElementById('modalSkillTitle');
+    const modalContent = document.getElementById('modalSkillContent');
+
+    // 2. 모달 여는 함수
+    function openModal(skillName) {
+        // 클릭한 스킬 이름으로 모달 내용 업데이트
+        modalTitle.textContent = skillName;
+        
+        // (선택 사항) 스킬별로 다른 내용을 보여주고 싶다면 여기서 처리
+        if (skillName === "Driver's Licence (Class 1 Ordinary)") {
+            modalContent.textContent = "1종 보통 운전면허를 보유하고 있습니다.";
+        } else if (skillName === "Github") {
+            modalContent.textContent = "Git과 Github를 사용하여 버전 관리를 할 수 있습니다.";
+        } else if (skillName === "Excel Beginner") {
+            modalContent.textContent = "Excel을 다룰 수 있습니다.";
+        } else if (skillName === "Barista Level 2") {
+            modalContent.textContent = "바리스타 2급 자격증을 보유하고 있습니다.";
+        } else if (skillName === "HTML Beginner") {
+            modalContent.textContent = "HTML을 다룰 수 있습니다.";
+        } else {
+            modalContent.textContent = `"${skillName}" 스킬에 대한 상세 설명입니다.`;
+        }
+        
+        // 모달과 오버레이 보이기
+        modal.classList.add('show');
+        overlay.classList.add('show');
+    }
+
+    // 3. 모달 닫는 함수
+    function closeModal() {
+        modal.classList.remove('show');
+        overlay.classList.remove('show');
+    }
+
+    // 4. 이벤트 리스너 연결
+    // 모든 스킬 태그에 클릭 이벤트 추가
+    skillTags.forEach(tag => {
+        tag.addEventListener('click', () => {
+            const skillName = tag.textContent; // 클릭된 태그의 텍스트 가져오기
+            openModal(skillName);
+        });
+    });
+
+    // 닫기 버튼 클릭 시 모달 닫기
+    closeButton.addEventListener('click', closeModal);
+
+    // 오버레이 클릭 시 모달 닫기
+    overlay.addEventListener('click', closeModal);
+
+    // ▲▲▲ 모달 팝업 로직 (여기까지) ▲▲▲
+
+}); // <-- DOMContentLoaded 리스너가 여기서 닫힙니다.
 
 // vCard 생성 및 다운로드 함수
 function downloadVCard() {
@@ -48,7 +108,6 @@ function downloadVCard() {
 VERSION:3.0
 FN:하재영
 N:하;재영;;;
-<!-- TITLE: 회사명 -->
 TEL;TYPE=CELL:010-4316-2708
 EMAIL:mail@hajaeyoung.kr
 URL:https://businesscard.hajaeyoung.kr
@@ -191,61 +250,3 @@ updateVisitorCount();
 document.addEventListener('copy', function(e) {
     console.log('내용이 복사되었습니다.');
 });
-
-// ▼▼▼ 모달 팝업 로직 (여기에 추가) ▼▼▼
-
-// 1. 필요한 HTML 요소 선택
-const skillTags = document.querySelectorAll('.skill-tag');
-const modal = document.getElementById('skillModal');
-const overlay = document.getElementById('modalOverlay');
-const closeButton = document.querySelector('.close-button');
-const modalTitle = document.getElementById('modalSkillTitle');
-const modalContent = document.getElementById('modalSkillContent');
-
-// 2. 모달 여는 함수
-function openModal(skillName) {
-    // 클릭한 스킬 이름으로 모달 내용 업데이트
-    modalTitle.textContent = skillName;
-    
-    // (선택 사항) 스킬별로 다른 내용을 보여주고 싶다면 여기서 처리
-    if (skillName === "Driver's Licence (Class 1 Ordinary)") {
-        modalContent.textContent = "1종 보통 운전면허를 보유하고 있습니다.";
-    } else if (skillName === "Github") { // 'Github Beginner'에서 'Github'로 변경되었습니다.
-        modalContent.textContent = "Git과 Github를 사용하여 버전 관리를 할 수 있습니다.";
-    } else if (skillName === "Excel Beginner") {
-        modalContent.textContent = "Excel을 다룰 수 있습니다.";
-    } else if (skillName === "Barista Level 2") {
-        modalContent.textContent = "바리스타 2급 자격증을 보유하고 있습니다.";
-    } else if (skillName === "HTML Beginner") {
-        modalContent.textContent = "HTML을 다룰 수 있습니다.";
-    } else {
-        modalContent.textContent = `"${skillName}" 스킬에 대한 상세 설명입니다.`;
-    }
-    
-    // 모달과 오버레이 보이기
-    modal.classList.add('show');
-    overlay.classList.add('show');
-}
-
-// 3. 모달 닫는 함수
-function closeModal() {
-    modal.classList.remove('show');
-    overlay.classList.remove('show');
-}
-
-// 4. 이벤트 리스너 연결
-// 모든 스킬 태그에 클릭 이벤트 추가
-skillTags.forEach(tag => {
-    tag.addEventListener('click', () => {
-        const skillName = tag.textContent; // 클릭된 태그의 텍스트 가져오기
-        openModal(skillName);
-    });
-});
-
-// 닫기 버튼 클릭 시 모달 닫기
-closeButton.addEventListener('click', closeModal);
-
-// 오버레이 클릭 시 모달 닫기
-overlay.addEventListener('click', closeModal);
-
-// ▲▲▲ 모달 팝업 로직 (여기까지) ▲▲▲
