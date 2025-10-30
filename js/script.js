@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (skillName === "Excel Beginner") {
             modalContent.innerHTML = "Excel을 다룰 수 있습니다.";
         } else if (skillName === "Barista Level 2") {
-            modalContent.innerHTML = "바리스타 2급 자격증을 보유하고 있습니다.<br><br>' + 
+            modalContent.innerHTML = '바리스타 2급 자격증을 보유하고 있습니다.<br><br>' + 
                                      '<strong><a href="https://www.kca-coffee.org" target="_blank">-(사)한국커피협회-</a></strong>';
         } else if (skillName === "HTML Beginner") {
             modalContent.innerHTML = "HTML을 다룰 수 있습니다.";
