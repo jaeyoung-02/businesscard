@@ -517,3 +517,18 @@ body {
     transform: translate(-50%, -50%) scale(1); /* 활성화 시 크기 원래대로 */
 }
 /* ▲▲▲ 모달 팝업 스타일 (여기까지) ▲▲▲ */
+.modal.show {
+    transform: translate(-50%, -50%) scale(1); /* 활성화 시 크기 원래대로 */
+}
+/* ▲▲▲ 모달 팝업 스타일 (여기까지) ▲▲▲ */
+
+
+/* ▼▼▼ 모달 팝업 내부 이미지 스타일 (여기에 추가) ▼▼▼ */
+.modal-skill-image {
+    width: 100%; /* 팝업창 너비에 꽉 채우기 */
+    max-height: 250px; /* 이미지 최대 높이 제한 (선택 사항) */
+    object-fit: contain; /* 이미지 비율 유지 */
+    border-radius: 8px; /* 이미지 모서리 둥글게 */
+    margin-bottom: 15px; /* 이미지와 아래 텍스트 사이 간격 */
+}
+/* ▲▲▲ 모달 팝업 내부 이미지 스타일 (여기까지) ▲▲▲ */
