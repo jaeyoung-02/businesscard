@@ -111,8 +111,8 @@ function downloadVCard() {
 VERSION:3.0
 FN:하재영
 N:하;재영;;;
-TEL;TYPE=CELL:+070-8983-2821
-TEL;TYPE=phone:010-6520-5120
+TEL;TYPE=대표:070-8983-2821
+TEL;TYPE=휴대폰:010-6520-5120
 EMAIL:mail@hajaeyoung.kr
 URL:https://businesscard.hajaeyoung.kr
 NOTE:연락처 저장 감사합니다.
