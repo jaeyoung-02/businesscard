@@ -111,7 +111,7 @@ function downloadVCard() {
 VERSION:3.0
 FN:하재영
 N:하;재영;;;
-TEL;TYPE=대표:070-5236-0272
+TEL;TYPE=대표:070-5275-5657
 TEL;TYPE=휴대폰:010-6520-5120
 EMAIL:mail@hajaeyoung.kr
 URL:https://businesscard.hajaeyoung.kr
